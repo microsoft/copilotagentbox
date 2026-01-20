@@ -1,449 +1,237 @@
 # 📖 Como Usar o Copilot Agent Box
 
-Este guia fornece instruções detalhadas sobre como configurar, customizar e executar os agentes disponíveis no Copilot Agent Box.
+Este guia fornece instruções detalhadas sobre como usar o agente de Ata de Reunião do Copilot Agent Box, incluindo instalação, configuração, execução e melhores práticas.
 
 ---
 
 ## 📋 Índice
 
-- [Instalação e Configuração](#instalação-e-configuração)
-- [Estrutura de um Agente](#estrutura-de-um-agente)
-- [Customizando Prompts](#customizando-prompts)
-- [Configuração YAML](#configuração-yaml)
-- [Executando um Agente](#executando-um-agente)
-- [Testando e Depurando](#testando-e-depurando)
-- [Boas Práticas](#boas-práticas)
-- [Solução de Problemas](#solução-de-problemas)
+- [Criando um Agente no Copilot Studio Lite - Passo a Passo Completo](#-criando-um-agente-no-copilot-studio-lite---passo-a-passo-completo)
+  - [Pré-requisitos](#-pré-requisitos)
+  - [Passo 1: Acessar o Copilot Studio Lite e Clicar em "Criar Agente"](#passo-1-acessar-o-copilot-studio-lite-e-clicar-em-criar-agente)
+  - [Passo 2: Configurar o Agente (Aba Configurar)](#passo-2-configurar-o-agente-aba-configurar)
+  - [Passo 3: Adicionar Origens de Conhecimento](#passo-3-adicionar-origens-de-conhecimento)
+  - [Passo 4: Adicionar Recursos (Capacidades)](#passo-4-adicionar-recursos-capacidades)
+  - [Passo 5: Configurar Prompts Iniciais](#passo-5-configurar-prompts-iniciais)
+  - [Passo 6: Experimentar o Agente de Ata de Reunião (Painel de Teste)](#passo-6-experimentar-o-agente-de-ata-de-reunião-painel-de-teste)
+  - [Passo 7: Criar o Agente](#passo-7-criar-o-agente)
+  - [Passo 8: Compartilhar o Agente](#passo-8-compartilhar-o-agente)
+- [Diferenças entre Compartilhar e Publicar](#-diferenças-entre-compartilhar-e-publicar)
+- [Gerenciar Agentes](#️-gerenciar-agentes)
+- [Recursos Adicionais](#-recursos-adicionais)
+- [Precisa de Ajuda?](#-precisa-de-ajuda)
 
 ---
 
-## 🔧 Instalação e Configuração
+## 🔧 Criando um Agente no Copilot Studio Lite - Passo a Passo Completo
 
-### Passo 1: Clonar o Repositório
+Este guia detalha o processo completo desde o botão **"Criar Agente"** até **"Criar e Compartilhar"**, baseado na documentação oficial do [Copilot Studio Lite no Microsoft 365 Copilot](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-builder-build-agents).
 
-```bash
-git clone https://github.com/microsoft/copilotagentbox.git
-cd copilotagentbox
-```
+### 📋 Pré-requisitos
 
-### Passo 2: Instalar Dependências
+- Licença do Microsoft 365 Copilot
+- Acesso ao aplicativo Microsoft 365 Copilot
 
-```bash
-# Usando npm
-npm install
-
-# Ou usando yarn
-yarn install
-```
-
-### Passo 3: Configurar Variáveis de Ambiente
-
-Crie um arquivo `.env` na raiz do projeto:
-
-```env
-# Configurações do Microsoft 365 Copilot
-MICROSOFT_APP_ID=seu-app-id
-MICROSOFT_APP_PASSWORD=sua-senha
-TENANT_ID=seu-tenant-id
-
-# Configurações opcionais
-LOG_LEVEL=info
-ENVIRONMENT=development
-```
-
-### Passo 4: Verificar Instalação
-
-```bash
-npm run test
-```
+> ⚠️ **Nota**: As capacidades dos agentes diferem com base na licença do usuário. Consulte a documentação para mais detalhes.
 
 ---
 
-## 🏗️ Estrutura de um Agente
+### Passo 1: Acessar o Copilot Studio Lite e Clicar em "Criar Agente"
 
-Cada agente no repositório segue uma estrutura padrão:
+1. **Abra o aplicativo Microsoft 365 Copilot**
+2. No **painel esquerdo**, selecione **Criar agente**
+3. Você pode criar o agente de duas formas:
+   - Através da aba **Descrever** (usando linguagem natural)
+   - Através da aba **Configurar** (compilação manual)
 
-```
-examples/agent-nome/
-├── README.md              # Documentação específica do agente
-├── config.yaml            # Configurações do agente
-├── prompts/
-│   ├── system.md         # Prompt do sistema
-│   ├── user.md           # Template de prompt do usuário
-│   └── examples.md       # Exemplos de uso
-├── src/
-│   ├── index.js          # Ponto de entrada
-│   ├── handlers/         # Manipuladores de eventos
-│   └── utils/            # Utilitários
-└── tests/
-    └── agent.test.js     # Testes do agente
-```
-
-### Componentes Principais
-
-#### 1. **README.md**
-- Descrição do agente
-- Casos de uso
-- Exemplos práticos
-- Limitações conhecidas
-
-#### 2. **config.yaml**
-- Configurações específicas do agente
-- Parâmetros de comportamento
-- Credenciais e endpoints
-
-#### 3. **prompts/**
-- Templates de prompts reutilizáveis
-- Instruções para o modelo
-- Exemplos de interação
-
-#### 4. **src/**
-- Código-fonte do agente
-- Lógica de negócio
-- Integrações
+> 💡 **Dica**: A aba **Descrever** só está disponível quando o idioma do Microsoft 365 está definido para um dos idiomas suportados.
 
 ---
 
-## ✍️ Customizando Prompts
+### Passo 2: Configurar o Agente (Aba Configurar)
 
-### Estrutura de um Prompt
+A aba **Configurar** permite editar diretamente as informações do agente com mais controle e precisão:
 
-Os prompts no Copilot Agent Box seguem o padrão Markdown:
+| Campo | Descrição | Limite |
+|-------|-----------|--------|
+| **Nome** | Nome descritivo e exclusivo do agente | 30 caracteres |
+| **Ícone** | Imagem PNG para representar o agente (fundo transparente recomendado) | 192x192 pixels, 1 MB |
+| **Descrição** | Ajuda o LLM a identificar quando usar o agente. Deve ser curta, precisa e simples | 1.000 caracteres |
+| **Instruções** | Instruções específicas que direcionam o comportamento do agente. Veja o prompt sistêmico em [prompt.md](prompt.md) | 8.000 caracteres |
+| **Conhecimento** | Origens de conhecimento (SharePoint, sites, conectores) | Até 20 origens |
+| **Recursos** | Capacidades adicionais como Interpretador de Código e Gerador de Imagens | - |
+| **Prompts Iniciais** | Ajudam usuários a entender cenários suportados pelo agente | Sem limite mínimo |
 
-```markdown
-# System Prompt
+#### 📝 Configuração do Agente de Ata de Reunião
 
-Você é um assistente especializado em [ÁREA DE ESPECIALIZAÇÃO].
+Preencha os campos conforme abaixo para configurar o Agente de Ata de Reunião:
 
-## Suas Responsabilidades
-
-- Responder perguntas sobre [TÓPICO 1]
-- Auxiliar com [TAREFA 1]
-- Fornecer insights sobre [ÁREA 2]
-
-## Diretrizes
-
-1. Seja sempre claro e objetivo
-2. Use linguagem profissional
-3. Cite fontes quando relevante
-
-## Limitações
-
-- Não forneça informações confidenciais
-- Não execute ações sem confirmação
-```
-
-### Variáveis de Template
-
-Use variáveis para tornar seus prompts dinâmicos:
-
-```markdown
-Olá {{userName}}, 
-
-Você solicitou ajuda com {{taskType}}. 
-Com base em {{context}}, aqui está minha recomendação...
-```
-
-### Melhores Práticas para Prompts
-
-1. **Seja Específico**: Defina claramente o papel e responsabilidades do agente
-2. **Use Exemplos**: Forneça exemplos de interações esperadas
-3. **Defina Limitações**: Deixe claro o que o agente não deve fazer
-4. **Estruture Bem**: Use cabeçalhos e listas para organização
-5. **Teste Iterativamente**: Refine os prompts com base nos resultados
+| Campo | Valor Sugerido |
+|-------|----------------|
+| **Nome** | `Agente Ata de Reunião` |
+| **Ícone** | Use uma imagem PNG representativa (ex: ícone de documento ou bloco de notas) |
+| **Descrição** | `Agente especializado em criar, estruturar e organizar atas de reunião. Registra participantes, pauta, decisões tomadas, ações pendentes e próximos passos de forma clara e profissional.` |
+| **Instruções** | Copie o conteúdo do arquivo **[prompt.md](prompt.md)** que contém o prompt sistêmico completo do agente |
 
 ---
 
-## ⚙️ Configuração YAML
+### Passo 3: Adicionar Origens de Conhecimento
 
-### Exemplo de config.yaml
+Para criar agentes com detecção de contexto, você pode referenciar:
 
-```yaml
-# Configuração do Agente
-agent:
-  name: "Agente de Suporte"
-  version: "1.0.0"
-  description: "Agente para suporte ao cliente"
+| Tipo de Origem | Descrição |
+|----------------|-----------|
+| **Itens do SharePoint** | Pastas e arquivos do SharePoint da organização |
+| **Sites públicos** | Qualquer site público acessível |
+| **Conectores Copilot** | Conectores Microsoft 365 Copilot pré-criados e ativados no tenant |
 
-# Configurações do Modelo
-model:
-  provider: "azure-openai"
-  deployment: "gpt-4"
-  temperature: 0.7
-  max_tokens: 2000
-  top_p: 0.95
+**Com licença de suplemento Microsoft 365 Copilot, você também pode:**
+- Utilizar informações pessoais de trabalho (mensagens do Teams, e-mails do Outlook)
 
-# Configurações de Comportamento
-behavior:
-  language: "pt-BR"
-  tone: "professional"
-  verbosity: "balanced"
-  
-# Integrações
-integrations:
-  microsoft365:
-    enabled: true
-    services:
-      - "teams"
-      - "outlook"
-      - "sharepoint"
-  
-# Segurança
-security:
-  require_authentication: true
-  allowed_domains:
-    - "contoso.com"
-  rate_limit:
-    requests_per_minute: 60
-
-# Logging
-logging:
-  level: "info"
-  include_user_data: false
-```
-
-### Parâmetros Principais
-
-| Parâmetro | Descrição | Valores |
-|-----------|-----------|---------|
-| `temperature` | Controla a criatividade das respostas | 0.0 - 1.0 |
-| `max_tokens` | Limite de tokens na resposta | 1 - 4096 |
-| `top_p` | Controla a diversidade das respostas | 0.0 - 1.0 |
-| `tone` | Tom das respostas | professional, casual, friendly |
-| `verbosity` | Nível de detalhamento | concise, balanced, detailed |
+> 📖 Para mais detalhes, consulte: [Adicionar origens de conhecimento](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-builder-add-knowledge)
 
 ---
 
-## 🚀 Executando um Agente
+### Passo 4: Adicionar Recursos (Capacidades)
 
-### Execução Básica
+Na seção **Capacidades** da aba Configurar, você pode adicionar:
 
-```bash
-# Navegar até o diretório do agente
-cd examples/agent-suporte
-
-# Executar o agente
-node src/index.js
-```
-
-### Execução com Parâmetros
-
-```bash
-# Especificar arquivo de configuração
-node src/index.js --config=config.custom.yaml
-
-# Modo de debug
-node src/index.js --debug
-
-# Especificar ambiente
-NODE_ENV=production node src/index.js
-```
-
-### Executando via API
-
-```javascript
-const AgentBox = require('copilotagentbox');
-
-// Inicializar o agente
-const agent = new AgentBox.Agent({
-  configPath: './config.yaml',
-  promptsPath: './prompts'
-});
-
-// Processar uma mensagem
-const response = await agent.process({
-  message: "Como posso ajudar com suporte técnico?",
-  userId: "user123",
-  context: {}
-});
-
-console.log(response.text);
-```
-
-### Integração com Microsoft Teams
-
-```javascript
-const { TeamsActivityHandler } = require('botbuilder');
-const AgentBox = require('copilotagentbox');
-
-class AgentBot extends TeamsActivityHandler {
-  constructor() {
-    super();
-    this.agent = new AgentBox.Agent({
-      configPath: './config.yaml'
-    });
-    
-    this.onMessage(async (context, next) => {
-      const response = await this.agent.process({
-        message: context.activity.text,
-        userId: context.activity.from.id
-      });
-      
-      await context.sendActivity(response.text);
-      await next();
-    });
-  }
-}
-```
+| Capacidade | Descrição | Como Ativar |
+|------------|-----------|-------------|
+| **Interpretador de Código** | Resolve problemas matemáticos complexos, analisa dados e gera visualizações | Ative o botão "Criar documentos, gráficos e código" |
+| **Gerador de Imagens** | Gera imagens com base nos pedidos do usuário | Ative o botão "Criar imagens" |
 
 ---
 
-## 🧪 Testando e Depurando
+### Passo 5: Configurar Prompts Iniciais
 
-### Testes Unitários
+Os prompts iniciais ajudam outros usuários a entender cenários comumente suportados pelo agente:
 
-```bash
-# Executar todos os testes
-npm test
+1. Cada prompt inicial tem um **nome** e uma **descrição**
+2. Não há número mínimo de prompts iniciais
+3. Quando clicados, os prompts invocam o pedido e iniciam a conversação
 
-# Executar testes de um agente específico
-npm test -- examples/agent-suporte
-
-# Executar com cobertura
-npm run test:coverage
-```
-
-### Modo Debug
-
-```bash
-# Ativar logs detalhados
-DEBUG=* node src/index.js
-
-# Logs específicos do agente
-DEBUG=agent:* node src/index.js
-```
-
-### Ferramentas de Debug
-
-1. **Console Interativo**
-```bash
-node
-> const agent = require('./examples/agent-suporte/src/index.js')
-> agent.process({ message: "teste" })
-```
-
-2. **VS Code Debugger**
-Crie `.vscode/launch.json`:
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug Agent",
-      "program": "${workspaceFolder}/examples/agent-suporte/src/index.js",
-      "console": "integratedTerminal"
-    }
-  ]
-}
-```
+> 💡 **Dica**: Use prompts iniciais para apresentar casos de uso sofisticados que os usuários talvez não saibam que são possíveis.
 
 ---
 
-## 💡 Boas Práticas
+### Passo 6: Experimentar o Agente de Ata de Reunião (Painel de Teste)
 
-### 1. Versionamento de Prompts
+O painel de teste no lado direito permite testar o agente enquanto você o cria:
 
-- Mantenha histórico de versões dos prompts
-- Documente mudanças significativas
-- Use controle de versão semântico
+1. O painel é ativado após o agente ter **nome**, **descrição** e **instruções**
+2. O agente se comporta de acordo com as instruções configuradas
+3. Selecione **Nova Conversa** para iniciar uma nova conversa e ver os prompts iniciais novamente
 
-### 2. Segurança
+#### 🧪 Roteiro de Testes para o Agente de Ata de Reunião
 
-- **Nunca** commite credenciais no repositório
-- Use variáveis de ambiente para dados sensíveis
-- Implemente rate limiting
-- Valide todas as entradas do usuário
+Execute os seguintes testes para validar o funcionamento do agente:
 
-### 3. Performance
+**Teste 1: Criação de Nova Ata**
+```
+Prompt: "Preciso criar uma ata para a reunião de planejamento trimestral que aconteceu hoje às 14h"
+Resultado esperado: O agente deve solicitar informações como participantes, pauta e decisões
+```
 
-- Cache respostas comuns
-- Use streaming para respostas longas
-- Implemente retry logic para falhas temporárias
-- Monitore uso de tokens
+**Teste 2: Registro de Participantes**
+```
+Prompt: "Participaram da reunião: João Silva (Gerente de Projetos), Maria Santos (Analista), Pedro Costa (Desenvolvedor) e Ana Lima (PO)"
+Resultado esperado: O agente deve registrar corretamente os participantes e seus cargos
+```
 
-### 4. Manutenibilidade
+**Teste 3: Registro de Decisões**
+```
+Prompt: "As decisões tomadas foram: aprovar o orçamento do Q2, iniciar o projeto Alpha em março e contratar 2 novos desenvolvedores"
+Resultado esperado: O agente deve listar as decisões de forma clara e estruturada
+```
 
-- Documente comportamentos esperados
-- Escreva testes para cenários críticos
-- Use naming conventions consistentes
-- Mantenha configurações separadas do código
+**Teste 4: Registro de Ações e Responsáveis**
+```
+Prompt: "João ficou responsável por enviar o cronograma até sexta-feira. Maria vai preparar o relatório de custos para a próxima semana"
+Resultado esperado: O agente deve criar uma lista de ações com responsáveis e prazos
+```
 
-### 5. Experiência do Usuário
+**Teste 5: Geração da Ata Completa**
+```
+Prompt: "Gere a ata completa da reunião"
+Resultado esperado: O agente deve consolidar todas as informações em um documento estruturado com: data, participantes, pauta, decisões, ações e próximos passos
+```
 
-- Forneça feedback durante processamento
-- Trate erros graciosamente
-- Ofereça sugestões quando apropriado
-- Personalize respostas quando possível
+**Teste 6: Edição de Informações**
+```
+Prompt: "Corrija o prazo do João para segunda-feira ao invés de sexta-feira"
+Resultado esperado: O agente deve atualizar a informação mantendo o restante da ata intacto
+```
+
+> ⚠️ **Limitações do painel de teste**: Como o agente ainda não foi criado, algumas funcionalidades não estão disponíveis (compartilhar pedidos, fornecer comentários, @mention outros agentes).
 
 ---
 
-## 🔍 Solução de Problemas
+### Passo 7: Criar o Agente
 
-### Erro: "Authentication Failed"
+Após testar e configurar o agente:
 
-**Problema**: Credenciais inválidas ou expiradas
+1. Selecione **Criar** no canto superior direito
+2. Uma mensagem de confirmação indica que o agente foi criado
+3. O agente é **privado** e só está disponível para você inicialmente
 
-**Solução**:
-1. Verifique as variáveis de ambiente no `.env`
-2. Confirme que o app está registrado no Azure AD
-3. Verifique as permissões do app
+---
 
-```bash
-# Testar autenticação
-npm run test:auth
-```
+### Passo 8: Compartilhar o Agente
 
-### Erro: "Rate Limit Exceeded"
+Após criar o agente, selecione o botão **Compartilhar** e escolha quem deve ter acesso:
 
-**Problema**: Muitas requisições em curto período
+| Opção de Compartilhamento | Descrição |
+|---------------------------|-----------|
+| **Qualquer pessoa na sua organização** | Qualquer pessoa no tenant pode usar o link de compartilhamento |
+| **Usuários específicos na sua organização** | Usuários ou grupos específicos podem usar o link (especifique nomes, e-mails, grupos de segurança ou grupos Microsoft 365) |
+| **Só você** | Somente o autor pode usar o agente (opção padrão) |
 
-**Solução**:
-1. Ajuste o `rate_limit` no config.yaml
-2. Implemente exponential backoff
-3. Use cache para requisições repetidas
+> 💡 **Nota**: Você pode compartilhar com até **98 usuários** especificando por nome ou e-mail.
 
-### Erro: "Invalid Response Format"
+#### Compartilhar Arquivos do SharePoint Automaticamente
 
-**Problema**: Resposta do modelo não está no formato esperado
+Ao compartilhar um agente com **Usuários específicos**, você pode:
+1. Selecionar as pastas e arquivos do SharePoint a compartilhar junto
+2. O compartilhamento só funciona se você tiver permissões para atualizar as permissões de compartilhamento
+3. Etiquetas de confidencialidade de arquivos são respeitadas
 
-**Solução**:
-1. Revise o prompt para ser mais específico
-2. Adicione exemplos de formato esperado
-3. Implemente validação de resposta
+> ⚠️ **Importante**: O agente respeita os privilégios do usuário final. Se o usuário não tiver acesso a uma origem de conhecimento, o agente não incluirá esse conteúdo nas respostas.
 
-```javascript
-function validateResponse(response) {
-  if (!response.text || typeof response.text !== 'string') {
-    throw new Error('Invalid response format');
-  }
-  return response;
-}
-```
+---
+### 📊 Diferenças entre Compartilhar e Publicar
 
-### Logs Não Aparecem
+| Aspecto | Compartilhar | Publicar |
+|---------|--------------|----------|
+| **Objetivo** | Colaboração, feedback, testes ou acesso limitado | Implementação formal para uso abrangente |
+| **Audiência** | Até 98 usuários nomeados | Organização inteira ou canal específico |
+| **Descoberta** | Privado, visível apenas para destinatários | Público (dentro do escopo), aparece no Arquivo de Agentes |
+| **Governança** | Mínima, sem fluxos de aprovação | Pode exigir aprovação e controle de versões |
+| **Integração** | Acesso direto apenas | Pode ser integrado no Teams, Copilot ou outras superfícies |
 
-**Problema**: Configuração de logging incorreta
+---
 
-**Solução**:
-```bash
-# Verificar configuração de logging
-cat config.yaml | grep -A 5 "logging:"
+### 🛠️ Gerenciar Agentes
 
-# Forçar nível de log
-LOG_LEVEL=debug node src/index.js
-```
+Para gerenciar seus agentes:
+
+1. No Microsoft 365 Copilot, expanda o painel esquerdo e selecione **Todos os agentes**
+2. Passe o cursor sobre o agente e clique com botão direito nas reticências (**...**)
+3. Selecione a opção desejada:
+   - **Editar**: Modifica o agente (alterações salvas automaticamente)
+   - **Eliminar**: Remove permanentemente o agente
+   - **Transferir .zip**: Baixa o pacote para sideload
+
+> ⚠️ **Importante**: Após editar um agente, selecione **Atualizar** para disponibilizar as alterações aos usuários.
 
 ---
 
 ## 📚 Recursos Adicionais
 
-- [Documentação de Arquitetura](ARQUITETURA.md)
-- [Guia de Contribuição](CONTRIBUTING.md)
-- [API Reference](API.md)
-- [FAQ](FAQ.md)
-- [Exemplos Avançados](../examples/README.md)
+- [Criar agentes com o Agent Builder no Microsoft 365 Copilot](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-builder-build-agents)
+- [Compartilhar e gerir agentes](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-builder-share-manage-agents)
+- [Adicionar origens de conhecimento](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-builder-add-knowledge)
+- [Modelos de agente](https://learn.microsoft.com/pt-br/microsoft-365-copilot/extensibility/agent-templates-overview)
 
 ---
 
