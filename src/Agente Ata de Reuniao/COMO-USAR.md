@@ -1,4 +1,4 @@
-# 📖 Como Usar o Copilot Agent Box
+# 📖 Como Usar o Agente de Ata de Reunião
 
 Este guia fornece instruções detalhadas sobre como usar o agente de Ata de Reunião do Copilot Agent Box, incluindo instalação, configuração, execução e melhores práticas.
 
