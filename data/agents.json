@@ -1,0 +1,62 @@
+[
+    {
+        "id": "ata-reuniao",
+        "title": "Agente Ata de Reunião",
+        "description": "Especializado em criar, estruturar e organizar atas de reunião de forma automática e profissional.",
+        "icon": "fas fa-file-signature",
+        "status": "available",
+        "statusLabel": "Disponível",
+        "features": [
+            "Geração automática de atas",
+            "Estrutura padronizada",
+            "Extração de action items"
+        ],
+        "link": "src/Agente%20Ata%20de%20Reuniao/COMO-USAR.md",
+        "linkText": "Ver Documentação"
+    },
+    {
+        "id": "suporte-cliente",
+        "title": "Agente Suporte ao Cliente",
+        "description": "Automação de atendimento, resolução de tickets e suporte inteligente ao cliente.",
+        "icon": "fas fa-headset",
+        "status": "soon",
+        "statusLabel": "Em Breve",
+        "features": [
+            "Atendimento automatizado",
+            "Resolução de tickets",
+            "Base de conhecimento"
+        ],
+        "link": "#",
+        "linkText": "Em Desenvolvimento"
+    },
+    {
+        "id": "analise-dados",
+        "title": "Agente Análise de Dados",
+        "description": "Transforme dados brutos em insights acionáveis com análises automatizadas e visualizações inteligentes.",
+        "icon": "fas fa-chart-bar",
+        "status": "soon",
+        "statusLabel": "Em Breve",
+        "features": [
+            "Análise automatizada",
+            "Geração de relatórios",
+            "Visualizações inteligentes"
+        ],
+        "link": "#",
+        "linkText": "Em Desenvolvimento"
+    },
+    {
+        "id": "gestao-projetos",
+        "title": "Agente Gestão de Projetos",
+        "description": "Acompanhamento de tarefas, cronogramas e status de projetos de forma automatizada.",
+        "icon": "fas fa-tasks",
+        "status": "soon",
+        "statusLabel": "Em Breve",
+        "features": [
+            "Acompanhamento de tarefas",
+            "Gestão de cronograma",
+            "Relatórios de progresso"
+        ],
+        "link": "#",
+        "linkText": "Em Desenvolvimento"
+    }
+]

@@ -202,63 +202,24 @@
                     </p>
                 </div>
                 
-                <div class="agents__grid">
-                    <article class="agent-card">
-                        <div class="agent-card__header">
-                            <div class="agent-card__icon">
-                                <i class="fas fa-file-signature"></i>
-                            </div>
-                            <span class="agent-card__badge">Disponível</span>
+                <div class="agents-carousel" tabindex="0" aria-label="Carrossel de agentes">
+                    <button class="agents-carousel__btn agents-carousel__btn--prev disabled" id="agents-prev" aria-label="Agente anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="agents-carousel__viewport">
+                        <div class="agents__grid" id="agents-track">
+                            <!-- Cards carregados dinamicamente via js/agents.js a partir de data/agents.json -->
                         </div>
-                        <h3 class="agent-card__title">Agente Ata de Reunião</h3>
-                        <p class="agent-card__description">
-                            Especializado em criar, estruturar e organizar atas de reunião de forma 
-                            automática e profissional.
-                        </p>
-                        <ul class="agent-card__features">
-                            <li><i class="fas fa-check"></i> Geração automática de atas</li>
-                            <li><i class="fas fa-check"></i> Estrutura padronizada</li>
-                            <li><i class="fas fa-check"></i> Extração de action items</li>
-                        </ul>
-                        <a href="../src/Agente%20Ata%20de%20Reuniao/COMO-USAR.md" class="agent-card__link">
-                            Ver Documentação <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </article>
+                    </div>
 
-                    <article class="agent-card">
-                        <div class="agent-card__header">
-                            <div class="agent-card__icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <span class="agent-card__badge agent-card__badge--soon">Em Breve</span>
-                        </div>
-                        <h3 class="agent-card__title">Agente Suporte ao Cliente</h3>
-                        <p class="agent-card__description">
-                            Automação de atendimento, resolução de tickets e suporte inteligente 
-                            ao cliente.
-                        </p>
-                        <ul class="agent-card__features">
-                            <li><i class="fas fa-check"></i> Atendimento automatizado</li>
-                            <li><i class="fas fa-check"></i> Resolução de tickets</li>
-                            <li><i class="fas fa-check"></i> Base de conhecimento</li>
-                        </ul>
-                        <a href="#" class="agent-card__link agent-card__link--disabled">
-                            Em Desenvolvimento <i class="fas fa-clock"></i>
-                        </a>
-                    </article>
+                    <button class="agents-carousel__btn agents-carousel__btn--next" id="agents-next" aria-label="Próximo agente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
 
-                    <article class="agent-card agent-card--cta">
-                        <div class="agent-card__icon agent-card__icon--cta">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                        <h3 class="agent-card__title">Contribua com seu Agente</h3>
-                        <p class="agent-card__description">
-                            Tem uma ideia de agente? Contribua com o projeto e ajude a comunidade!
-                        </p>
-                        <a href="https://github.com/microsoft/copilotagentbox" target="_blank" class="btn btn--primary btn--sm">
-                            <i class="fab fa-github"></i> Contribuir
-                        </a>
-                    </article>
+                <div class="agents-carousel__dots" id="agents-dots">
+                    <!-- Dots gerados dinamicamente -->
                 </div>
             </div>
         </section>
@@ -277,79 +238,8 @@
                     </p>
                 </div>
 
-                <div class="events__grid">
-                    <article class="event-card event-card--featured">
-                        <div class="event-card__badge">
-                            <i class="fas fa-star"></i> Destaque
-                        </div>
-                        <div class="event-card__date">
-                            <span class="event-card__day">15</span>
-                            <span class="event-card__month">FEV</span>
-                        </div>
-                        <div class="event-card__content">
-                            <span class="event-card__type">
-                                <i class="fas fa-broadcast-tower"></i> Live
-                            </span>
-                            <h3 class="event-card__title">Introdução aos Agentes Customizados do Copilot</h3>
-                            <p class="event-card__description">
-                                Aprenda a criar seus próprios agentes de IA para o Microsoft 365 Copilot 
-                                do zero. Sessão prática com demonstrações ao vivo.
-                            </p>
-                            <div class="event-card__meta">
-                                <span><i class="fas fa-clock"></i> 19:00 - 20:30 (BRT)</span>
-                                <span><i class="fas fa-user"></i> Microsoft MVP</span>
-                            </div>
-                            <a href="#" class="btn btn--primary btn--sm">
-                                <i class="fas fa-calendar-plus"></i> Inscrever-se
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="event-card">
-                        <div class="event-card__date">
-                            <span class="event-card__day">22</span>
-                            <span class="event-card__month">FEV</span>
-                        </div>
-                        <div class="event-card__content">
-                            <span class="event-card__type">
-                                <i class="fas fa-chalkboard-teacher"></i> Workshop
-                            </span>
-                            <h3 class="event-card__title">Deep Dive: Agente de Ata de Reunião</h3>
-                            <p class="event-card__description">
-                                Workshop prático sobre o agente de atas de reunião. Customização, 
-                                deploy e integração.
-                            </p>
-                            <div class="event-card__meta">
-                                <span><i class="fas fa-clock"></i> 14:00 - 16:00 (BRT)</span>
-                            </div>
-                            <a href="#" class="btn btn--outline btn--sm">
-                                <i class="fas fa-info-circle"></i> Mais Informações
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="event-card">
-                        <div class="event-card__date">
-                            <span class="event-card__day">01</span>
-                            <span class="event-card__month">MAR</span>
-                        </div>
-                        <div class="event-card__content">
-                            <span class="event-card__type">
-                                <i class="fas fa-users"></i> Meetup
-                            </span>
-                            <h3 class="event-card__title">Comunidade Copilot Agents Brasil</h3>
-                            <p class="event-card__description">
-                                Encontro mensal da comunidade para compartilhar experiências, 
-                                cases e networking.
-                            </p>
-                            <div class="event-card__meta">
-                                <span><i class="fas fa-clock"></i> 18:00 - 19:30 (BRT)</span>
-                            </div>
-                            <a href="#" class="btn btn--outline btn--sm">
-                                <i class="fas fa-info-circle"></i> Mais Informações
-                            </a>
-                        </div>
-                    </article>
+                <!-- Eventos carregados dinamicamente via js/events.js a partir de data/events.json -->
+                <div class="events__grid" id="events-grid">
                 </div>
 
                 <div class="events__cta">
@@ -539,5 +429,7 @@
     </a>
 
     <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/agents.js"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "featured": true,
+            "day": "15",
+            "month": "FEV",
+            "type": "Live",
+            "typeIcon": "fas fa-broadcast-tower",
+            "title": "Introdução aos Agentes Customizados do Copilot",
+            "description": "Aprenda a criar seus próprios agentes de IA para o Microsoft 365 Copilot do zero. Sessão prática com demonstrações ao vivo.",
+            "time": "19:00 - 20:30 (BRT)",
+            "speaker": "Microsoft MVP",
+            "link": "#",
+            "linkText": "Inscrever-se",
+            "linkIcon": "fas fa-calendar-plus",
+            "linkStyle": "primary"
+        },
+        {
+            "id": 2,
+            "featured": false,
+            "day": "22",
+            "month": "FEV",
+            "type": "Workshop",
+            "typeIcon": "fas fa-chalkboard-teacher",
+            "title": "Deep Dive: Agente de Ata de Reunião",
+            "description": "Workshop prático sobre o agente de atas de reunião. Customização, deploy e integração.",
+            "time": "14:00 - 16:00 (BRT)",
+            "speaker": null,
+            "link": "#",
+            "linkText": "Mais Informações",
+            "linkIcon": "fas fa-info-circle",
+            "linkStyle": "outline"
+        },
+        {
+            "id": 3,
+            "featured": false,
+            "day": "01",
+            "month": "MAR",
+            "type": "Meetup",
+            "typeIcon": "fas fa-users",
+            "title": "Comunidade Copilot Agents Brasil",
+            "description": "Encontro mensal da comunidade para compartilhar experiências, cases e networking.",
+            "time": "18:00 - 19:30 (BRT)",
+            "speaker": null,
+            "link": "#",
+            "linkText": "Mais Informações",
+            "linkIcon": "fas fa-info-circle",
+            "linkStyle": "outline"
+        }
+    ]
+}
