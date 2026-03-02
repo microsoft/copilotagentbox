@@ -1,24 +1,9 @@
 {
     "events": [
         {
-            "id": 1,
-            "featured": true,
-            "day": "27",
-            "month": "FEV",
-            "type": "Live",
-            "typeIcon": "fas fa-broadcast-tower",
-            "title": "#EP05 - Conheça o Agente personalizado Especialista em Instruções",
-            "description": "Neste episódio, vamos apresentar um agente personalizado especializado em fornecer instruções detalhadas sobre como criar um system prompt eficaz para o seu agente construído com o Agent Builder ou Copilot Studio. Aprenda as melhores práticas para desenvolver agentes eficazes e personalizados para suas necessidades específicas.",
-            "time": "13:30 - 14:30 (BRT)",
-            "speaker": "Beatriz Lourenço - Microsoft",
-            "link": "https://msit.events.teams.microsoft.com/event/msit.ce49f829-b408-4ace-8ac8-036b44301626@72f988bf-86f1-41af-91ab-2d7cd011db47",
-            "linkText": "Inscrever-se",
-            "linkIcon": "fas fa-calendar-plus",
-            "linkStyle": "primary"
-        },
-        {
+            
             "id": 2,
-            "featured": false,
+            "featured": true,
             "day": "03",
             "month": "MAR",
             "type": "Live",
