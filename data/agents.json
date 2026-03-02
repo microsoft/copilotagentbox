@@ -18,21 +18,21 @@
         "id": "especialista-instrucoes",
         "title": "Agente Especialista em Instruções",
         "description": "Agente declarativo do Microsoft 365 Copilot projetado para ajudar usuários a criar instruções claras, estruturadas e eficazes para outros agentes. Ela orienta os usuários explicando os componentes essenciais das instruções de agentes declarativos — como Propósito, Diretrizes, Habilidades, Instruções passo a passo, Tratamento de erros, Ciclos de feedback, Exemplos de interação, Termos não padronizados e Acompanhamento e encerramento — conforme descrito na instrução.",
-        "icon": "fas fa-headset",
+        "icon": "fas fa-file-pen",
        "status": "available",
         "statusLabel": "Disponível",
         "features": [
             "Criação de Instrução",
             "Revisão de Instrução"
         ],
-        "link": "#",
-        "linkText": "Em Desenvolvimento"
+        "link": "https://github.com/microsoft/copilotagentbox/blob/main/src/Agente%20Especialista%20em%20Instru%C3%A7%C3%B5es/COMO-USAR-Especialista-em-Instrucoes.md",
+        "linkText": "Ver Documentação"
     },
     {
         "id": "analise-dados",
-        "title": "Agente Análise de Dados",
-        "description": "Transforme dados brutos em insights acionáveis com análises automatizadas e visualizações inteligentes.",
-        "icon": "fas fa-chart-bar",
+        "title": "Agente JurisBrief",
+        "description": "Analisa e cria relatório de peça processuais.",
+        "icon": "fas fa-gavel",
         "status": "soon",
         "statusLabel": "Em Breve",
         "features": [
