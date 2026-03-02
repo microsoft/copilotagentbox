@@ -15,16 +15,15 @@
         "linkText": "Ver Documentação"
     },
     {
-        "id": "suporte-cliente",
-        "title": "Agente Suporte ao Cliente",
-        "description": "Automação de atendimento, resolução de tickets e suporte inteligente ao cliente.",
+        "id": "especialista-instrucoes",
+        "title": "Agente Especialista em Instruções",
+        "description": "Agente declarativo do Microsoft 365 Copilot projetado para ajudar usuários a criar instruções claras, estruturadas e eficazes para outros agentes. Ela orienta os usuários explicando os componentes essenciais das instruções de agentes declarativos — como Propósito, Diretrizes, Habilidades, Instruções passo a passo, Tratamento de erros, Ciclos de feedback, Exemplos de interação, Termos não padronizados e Acompanhamento e encerramento — conforme descrito na instrução.",
         "icon": "fas fa-headset",
-        "status": "soon",
-        "statusLabel": "Em Breve",
+       "status": "available",
+        "statusLabel": "Disponível",
         "features": [
-            "Atendimento automatizado",
-            "Resolução de tickets",
-            "Base de conhecimento"
+            "Criação de Instrução",
+            "Revisão de Instrução"
         ],
         "link": "#",
         "linkText": "Em Desenvolvimento"
